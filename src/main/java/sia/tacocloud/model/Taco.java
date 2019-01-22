@@ -1,5 +1,6 @@
-package sia.tacocloud.Model;
+package sia.tacocloud.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -9,6 +10,10 @@ import lombok.Data;
 
 @Data
 public class Taco {
+
+    Long id;
+
+    Date createdAt;
 
     @NotNull
     @Size(min = 4, message = "Name must be at least 4 characters long")

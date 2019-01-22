@@ -1,4 +1,7 @@
-package sia.tacocloud.Model;
+package sia.tacocloud.model;
+
+import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -10,6 +13,10 @@ import lombok.Data;
 
 @Data
 public class Order {
+
+    Long id;
+
+    Date placedAt;
 
     @NotBlank(message = "Name is required")
     private String name;
@@ -34,4 +41,14 @@ public class Order {
 
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
+
+    private List<Taco> tacos;
+
+    public void addDesign(Taco design) {
+        tacos.add(design);
+    }
+
+    public List<Taco> getTacos() {
+        return tacos;
+    }
 }
